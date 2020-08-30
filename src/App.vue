@@ -15,7 +15,7 @@
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">文件</template>
-              <el-menu-item index="/search/file">文件遍历</el-menu-item>
+              <el-menu-item index="/search/file">获取随机图片</el-menu-item>
             </el-submenu>
           </el-submenu>
           <el-submenu index="2">

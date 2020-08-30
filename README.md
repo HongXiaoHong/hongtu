@@ -1,6 +1,10 @@
 # hongtu
 
-> hongtubaye
+> 鸿图霸业
+
+## target
+1. 收集各种常见的代码
+2. 练习vue webpack node element
 
 ## Build Setup
 
