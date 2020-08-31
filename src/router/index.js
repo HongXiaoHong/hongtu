@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Test from '../components/pages/Test'
 import GenerateDate from '../components/pages/GenerateDate'
 import SearchFile from '../components/pages/File/SearchFile'
+import UploadFile from '../components/pages/File/UploadFile'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
       path: '/search/file',
       name: 'SearchFile',
       component: SearchFile
+    },{
+      path: '/upload/file',
+      name: 'UploadFile',
+      component: UploadFile
     }
   ]
 })
