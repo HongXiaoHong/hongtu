@@ -3,9 +3,10 @@
     <!--    <el-button type="primary" @click="getRandomImage">获取随机图片</el-button>
         <el-image src="/api/image/random/memory"></el-image>-->
     <el-carousel :interval="4000" type="card" height="800px" @change="trans">
-      <el-carousel-item v-for="(url, index) in urls" :key="url + index" ref="randomImage">
+      <el-carousel-item v-for="(imgUrl, index) in urls" :key="imgUrl + index" ref="randomImage">
         <h3 class="medium">
-          <el-image :src="url"></el-image>
+<!--          <el-image :src="url"></el-image>-->
+          <el-image :src="imgUrl.url"></el-image>
           <!--        <img src="/api/image/random/memory"/>-->
         </h3>
       </el-carousel-item>
@@ -22,7 +23,8 @@
       let urls = [];
       let index = 0;
       for (; index < 6; index++) {
-        urls.push("/api/image/random/memory/" + index);
+        let imgUrl = {"url": "/api/image/random/memory/" + index}
+        urls.push(imgUrl);
       }
       console.log(urls)
       return {
@@ -43,12 +45,15 @@
         });
       },
       trans(val) {
-        console.log(val)
-        console.log((val+1)%6)
+        // console.log(val)
+        // console.log((val+1)%6)
         // console.log(this.$refs.randomImage)
-        // console.log(this.$refs.randomImage[val].$children[0].src)
-
-        this.$refs.randomImage[(val+1)%5].$children[0].src = "/api/image/random/memory/" + new Date().getTime();
+        // console.log(this.$refs.randomImage[val].firstElementChild)
+        //
+        // this.$refs.randomImage[(val+1)%5].$children[0].src = "/api/image/random/memory/" + new Date().getTime();
+        // this.urls[(val+1)%5] = "/api/image/random/memory/" + new Date().getTime();
+        this.urls[(val+1)%5].url = "/api/image/random/memory/" + new Date().getTime();
+        // this.imageUrl = "/api/image/random/memory/" + new Date().getTime();
       }
     }
   }

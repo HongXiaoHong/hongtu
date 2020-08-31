@@ -15,7 +15,7 @@
  '----------------'  '----------------'  '----------------'  '----------------'   '----------------'  '----------------'
 
     </pre>
-    <el-carousel :interval="4000" type="card" height="750px">
+    <el-carousel :interval="4000" type="card" height="350px">
       <el-carousel-item v-for="item in 5" :key="item">
         <div class="block">
           <el-image :src="imgs[item]"></el-image>
@@ -37,7 +37,7 @@
       let imgs = []
       imgs.push(0)
       for (let i = 0; i < 5; i++) {
-        imgs.push(require('../../static/img/' + i + '.png'))
+        imgs.push(require('../../static/img/' + i + '.jpg'))
       }
       return {
         src: logo,
