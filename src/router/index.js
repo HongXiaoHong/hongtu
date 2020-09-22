@@ -5,6 +5,9 @@ import Test from '../components/pages/Test'
 import GenerateDate from '../components/pages/GenerateDate'
 import SearchFile from '../components/pages/File/SearchFile'
 import UploadFile from '../components/pages/File/UploadFile'
+import Resume from '../components/pages/record/Resume'
+import BrushQuestions from '../components/pages/learn/BrushQuestions'
+import AddQuestion from '../components/pages/learn/AddQuestion'
 
 Vue.use(Router)
 
@@ -30,6 +33,18 @@ export default new Router({
       path: '/upload/file',
       name: 'UploadFile',
       component: UploadFile
+    },{
+      path: '/record/resume',
+      name: 'Resume',
+      component: Resume
+    },{
+      path: '/learn/brush/questions',
+      name: 'BrushQuestions',
+      component: BrushQuestions
+    },{
+      path: '/add/question',
+      name: 'AddQuestion',
+      component: AddQuestion
     }
   ]
 })
