@@ -8,6 +8,7 @@ import UploadFile from '../components/pages/File/UploadFile'
 import Resume from '../components/pages/record/Resume'
 import BrushQuestions from '../components/pages/learn/BrushQuestions'
 import AddQuestion from '../components/pages/learn/AddQuestion'
+import HelloCharts from '../components/pages/echart/HelloCharts'
 
 Vue.use(Router)
 
@@ -45,6 +46,10 @@ export default new Router({
       path: '/add/question',
       name: 'AddQuestion',
       component: AddQuestion
+    },{
+      path: '/hello/charts',
+      name: 'HelloCharts',
+      component: HelloCharts
     }
   ]
 })

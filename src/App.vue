@@ -1,14 +1,18 @@
 <template>
   <div id="app">
     <el-container style="height: 100vh; border: 1px solid #eee">
-      <el-aside style="background-color: #7db0e3;"
+      <el-aside style="background-color: rgba(255,255,255,0.62);"
                 v-bind:style="{ width: widthAside + 'px' }">
-        <el-radio-group v-model="isCollapse" @click="handleOpen">
-          <el-radio-button :label="false" @click.native="handleOpen">展开</el-radio-button>
-          <el-radio-button :label="true" @click.native="handleClose">收起</el-radio-button>
-        </el-radio-group>
+        <!--        <el-radio-group v-model="isCollapse" @click="handleOpen">
+                  <el-radio-button :label="false" @click.native="handleOpen"
+                  >展开
+                  </el-radio-button>
+                  <el-radio-button :label="true" @click.native="handleClose">收起</el-radio-button>
+                </el-radio-group>-->
+        <!--        <el-button icon="el-icon-my-statistic" circle></el-button>-->
+        <i class="el-icon-my-statistic" @click="turnOnOrOff"></i>
         <el-menu default-active="1-4-1" class="el-menu-vertical-demo"
-                 :default-openeds="['3']" :default-active="this.$router.path" router
+                 :default-active="this.$router.path" router
                  :collapse="isCollapse">
           <el-submenu index="1">
             <template slot="title">
@@ -51,6 +55,10 @@
               <el-menu-item index="/learn/brush/questions">刷题</el-menu-item>
               <el-menu-item index="/add/question">题目录入</el-menu-item>
             </el-menu-item-group>
+            <el-menu-item-group>
+              <span slot="title">可视化</span>
+              <el-menu-item index="/hello/charts">你好图表</el-menu-item>
+            </el-menu-item-group>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -70,7 +78,7 @@
     data() {
       return {
         isCollapse: true,
-        widthAside: 65
+        widthAside: 70
       }
     },
     methods: {
@@ -81,8 +89,12 @@
       },
       handleClose(key, keyPath) {
         console.log("handleClose")
-        this.widthAside = 65
+        this.widthAside = 70
         console.log(key, keyPath);
+      },
+      turnOnOrOff() {
+        this.isCollapse = !this.isCollapse
+        this.isCollapse ? this.widthAside = 70 : this.widthAside = 200
       }
     }
   }
@@ -91,10 +103,6 @@
 <style>
   body {
     margin: 0;
-  }
-
-  .el-container {
-    border: 0 !important;
   }
 
   #app {
@@ -106,18 +114,16 @@
     /*margin-top: 60px;*/
   }
 
-  .el-header {
-    background-color: #669ee8;
-    color: #333;
-    line-height: 60px;
+  .el-icon-my-statistic {
+    background: url('../static/img/icon/Wizard.ico') center no-repeat;
   }
 
-  .el-aside {
-    color: #333;
+  .el-icon-my-statistic:before {
+    content: "\8d3a";
+    font-size: 50px;
+    visibility: hidden;
   }
-
-  /*  .el-menu-vertical-demo:not(.el-menu--collapse) {
-      width: 200px;
-      min-height: 400px;
-    }*/
+  .el-icon-my-statistic:hover{
+    cursor:pointer;
+  }
 </style>
