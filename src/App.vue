@@ -10,7 +10,29 @@
                   <el-radio-button :label="true" @click.native="handleClose">收起</el-radio-button>
                 </el-radio-group>-->
         <!--        <el-button icon="el-icon-my-statistic" circle></el-button>-->
-        <i class="el-icon-my-statistic" @click="turnOnOrOff"></i>
+        <!--        <i class="el-icon-my-statistic" @click="turnOnOrOff"></i>-->
+        <el-popover
+          placement="right"
+          width="400"
+          trigger="hover">
+          <!--          <p>这是一段内容这是一段内容确定删除吗？</p>-->
+          <div>
+            <el-form :label-position="left" label-width="80px" :model="user">
+              <el-form-item label="名称">
+                <el-input v-model="user.name" disabled></el-input>
+              </el-form-item>
+              <el-form-item label="年龄">
+                <el-input v-model="user.age" disabled></el-input>
+              </el-form-item>
+            </el-form>
+          </div>
+          <!--          <div style="text-align: right; margin: 0">
+                      <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
+                      <el-button type="primary" size="mini" @click="visible2 = false">确定</el-button>
+                    </div>-->
+          <!--          <el-button slot="reference">click 激活</el-button>-->
+          <el-avatar slot="reference" src="../static/img/icon/Wizard.ico"></el-avatar>
+        </el-popover>
         <el-menu default-active="1-4-1" class="el-menu-vertical-demo"
                  :default-active="this.$router.path" router
                  :collapse="isCollapse">
@@ -60,6 +82,9 @@
               <el-menu-item index="/hello/charts">你好图表</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+          <el-menu-item>
+            <i :class="expand" @click="turnOnOrOff"></i>
+          </el-menu-item>
         </el-menu>
       </el-aside>
 
@@ -78,23 +103,19 @@
     data() {
       return {
         isCollapse: true,
-        widthAside: 70
+        widthAside: 70,
+        expand: 'el-icon-d-arrow-right',
+        user: {
+          name: 'hong',
+          age: '25'
+        }
       }
     },
     methods: {
-      handleOpen(key, keyPath) {
-        console.log("handleOpen")
-        this.widthAside = 200
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log("handleClose")
-        this.widthAside = 70
-        console.log(key, keyPath);
-      },
       turnOnOrOff() {
         this.isCollapse = !this.isCollapse
-        this.isCollapse ? this.widthAside = 70 : this.widthAside = 200
+        this.widthAside = this.isCollapse ? 70 : 200
+        this.expand = this.isCollapse ? 'el-icon-d-arrow-right' : 'el-icon-d-arrow-left'
       }
     }
   }
@@ -123,7 +144,8 @@
     font-size: 50px;
     visibility: hidden;
   }
-  .el-icon-my-statistic:hover{
-    cursor:pointer;
+
+  .el-icon-my-statistic:hover {
+    cursor: pointer;
   }
 </style>
