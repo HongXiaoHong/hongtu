@@ -3,14 +3,6 @@
     <el-container style="height: 100vh; border: 1px solid #eee">
       <el-aside style="background-color: rgba(255,255,255,0.62);"
                 v-bind:style="{ width: widthAside + 'px' }">
-        <!--        <el-radio-group v-model="isCollapse" @click="handleOpen">
-                  <el-radio-button :label="false" @click.native="handleOpen"
-                  >展开
-                  </el-radio-button>
-                  <el-radio-button :label="true" @click.native="handleClose">收起</el-radio-button>
-                </el-radio-group>-->
-        <!--        <el-button icon="el-icon-my-statistic" circle></el-button>-->
-        <!--        <i class="el-icon-my-statistic" @click="turnOnOrOff"></i>-->
         <el-popover
           placement="right"
           width="400"
@@ -26,11 +18,6 @@
               </el-form-item>
             </el-form>
           </div>
-          <!--          <div style="text-align: right; margin: 0">
-                      <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
-                      <el-button type="primary" size="mini" @click="visible2 = false">确定</el-button>
-                    </div>-->
-          <!--          <el-button slot="reference">click 激活</el-button>-->
           <el-avatar slot="reference" src="../static/img/icon/Wizard.ico"></el-avatar>
         </el-popover>
         <el-menu default-active="1-4-1" class="el-menu-vertical-demo"
@@ -133,19 +120,5 @@
     text-align: center;
     color: #74afea;
     /*margin-top: 60px;*/
-  }
-
-  .el-icon-my-statistic {
-    background: url('../static/img/icon/Wizard.ico') center no-repeat;
-  }
-
-  .el-icon-my-statistic:before {
-    content: "\8d3a";
-    font-size: 50px;
-    visibility: hidden;
-  }
-
-  .el-icon-my-statistic:hover {
-    cursor: pointer;
   }
 </style>
